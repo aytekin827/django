@@ -15,20 +15,22 @@ def register(request):
         # register.html 페이지에서 POST로 들어온 값들을 변수로 지정해준다.
         # get함수를 이용해서 기본값을 지정해준다.
         username = request.POST.get('username_name',None)
+        useremail = request.POST.get('username_email',None)
         password = request.POST.get('password_pw',None)
         re_password = request.POST.get('re-password_pw',None)
 
         res_data = {}
 
-        if not (username and password and re_password):
+        if not (username and password and re_password and useremail):
             res_data['error'] = '[ERROR] - 모든 값을 입력해주셔야 합니다.'
         elif password != re_password:
             res_data['error'] = '[ERROR] - 비밀번호가 다릅니다.'            
         
         # model에 만들어두었던 클래스를 불러와서 객체를 생성해주고
         else:
-            fcuser = fcuser(
+            fcuser = Fcuser(
                 username = username,
+                useremail = useremail,
                 password = make_password(password) # make_password : 장고에서 기본적으로 제공하는 비밀번호를 암호화해서 return시켜주는 함수
             )
 
