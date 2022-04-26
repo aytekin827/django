@@ -1,0 +1,57 @@
+장고 명령어 정리
+
+프로젝트 만들기
+django-admin startproject [프로젝트이름]
+
+앱 만들기
+django-admin startapp [앱이름]
+
+앱 등록
+프로젝트 디렉토리 > 프로젝트 이름 디렉토리 > settings.py > installed_apps 리스트변수에 만든 앱 등록.
+
+만든model 마이그레이션
+python manage.py makemigrations
+python manage.py migrate
+
+8888port에 django 서버 시작
+python manage.py runserver 8888
+
+2-3
+admin page 슈퍼유저 만들기
+python manage.py createsuperuser
+admin page 계정 정보
+username : mj
+password : 2121
+
+2-5
+간단한 html 제작 시 부트스트랩(bootstrap) 활용!
+view.py와 html템플릿 연결방법.
+	1. html템플릿 만들기.(기본적으로 templates폴더를 바라본다.)
+	2. view.py파일에 html을 return할 함수 선언. - 함수의 인자로는 request, django의 render함수를 이용하여 request응답과 html파일 return.
+	3. 프로젝트/urls.py에 앱에서 만든 urls등록.
+	4. 앱/urls.py에 path지정. - urlpatterns에 경로와 view.py에서 지정한 함수를 인자로 넘긴다.
+
+2-6 : MTV의 T,V 만들기 (회원가입)
+form의 속성 중 action은 어디에 요청을 줄지 알려주는 부분
+예를 들어 form method='POST' action="." 이면 현재 페이지에 POST요청을 준다는 뜻.
+form submit시 현재 페이지에 요청. 
+
+(보안)authentication 기능 : 장고에서 폼을 전달해 줄 때 csrf_token을 꼭 넘겨주어야 한다. 안써주게 되면 에러가 나게 된다.
+{% csrf_token %} 폼 안에 써주어야 함.
+
+2-7 MTV의 T,V만들기 (3) - 회원가입
+render함수에 값을 전달해줘서 현재 페이지에 에러 내용을 그대로 보여줄 수 있도록 해주면 됨. 편리성!
+
+장고 제공 make_password기능 사용! 비밀번호를 암호화해준다.
+django.contrib.auth.hashers.make_password
+django.contrib.auth.hashers.check_password
+기능 사용 가능.
+
+2-8 퀴즈 - 회원에 필드 추가하기
+db확인용 cli 정리
+db들어가기 : sqlite3 db.sqlite3
+.tables : db내 테이블 확인
+.schema : 스키마 확인
+SELECT * FROM fastcampus_fcuser : fastcampus_fcuser테이블 내 데이터 확인.
+
+python manage.py migrate 할 때  table already exist 에러 - 블로그 확인, python manage.py migrate --fake
