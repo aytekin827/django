@@ -11,6 +11,7 @@ django-admin startapp [앱이름]
 
 만든model 마이그레이션
 python manage.py makemigrations
+(no change detected -> 프로젝트 settings.py에 새로 만든 앱을 등록하지 않아서 생기는 에러)
 python manage.py migrate
 
 8888port에 django 서버 시작
