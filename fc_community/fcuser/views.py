@@ -1,8 +1,34 @@
 from django.shortcuts import render
 from .models import Fcuser
 from django.http import HttpResponse
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 # Create your views here.
+
+def login(request):
+    if request.method == 'GET':
+        return render(request,'login.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username_name',None)
+        password = request.POST.get('password_pw',None)
+
+        res_data = {}
+        if not (username and password):
+            res_data['error'] = '모든 값을 입력해야 합니다.'
+        else:
+            fcuser = Fcuser.objects.get(username=username)
+            if check_password(password, fcuser.password):
+                # print('pass')
+                pass
+                # 비밀번호가 일치, 로그인 처리를!
+                # 세션처리!
+                # 홈페이지 리다이렉션 처리!
+
+            else:
+                # print('비밀번호 틀림')
+                res_data['error'] = '비밀번호가 틀렸습니다. 비밀번호를 확인하세요'
+
+        return render(request,'login.html',res_data)
+ 
 
 def register(request):
     # register 페이지에 get방식으로 접근했을 때
@@ -37,3 +63,4 @@ def register(request):
             fcuser.save() # 저장한다.
 
         return render(request, 'register.html', res_data)
+

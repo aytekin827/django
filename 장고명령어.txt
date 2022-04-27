@@ -80,3 +80,12 @@ python manage.py migrate 할 때  table already exist 에러 - 블로그 확인,
 
 	*bootswatch에서 css테마파일을 받을 수 있다.
 	그래서 cdn으로 링크를 통해서 css나 javascript를 받아서 사용하거나 아니면 직접 파일을 받아서 그 파일을 읽어오도록 설정할 수 있다. 
+
+4-1 로그인 - 세션이란.
+	 쿠키는 웹사이트(서버)별로 따로 저장해두고 로그인 기능
+	 쿠키, 로그인, 세션...
+
+4-2 로그인만들기
+	register페이지 만들때랑 거의 비슷.
+	Fcuser class로부터 불러오는 함수와 check_password 함수 기억해두면 좋을 듯
+	Fcuser.objects.get(조건)
