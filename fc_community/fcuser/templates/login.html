@@ -15,31 +15,15 @@
     <div class="col-12">
         <form method="POST" action=".">
           {% csrf_token %}
-            <!-- # 암호화된 키를 만들어주는 과정 크로스도메인을  막기위해서. 해쉬정보들로 만들어준다.-->
-            <!-- 장고에서는 이걸 기본세팅으로 하기 때문에 안써줄경우 토큰이 없다고 에러가날 수 있기때문에  -->
-            <div class="mb-3">
-              <label for="username" class="form-label">사용자 이름</label>
-              <input 
-              type="text" 
-              class="form-control" 
-              id="username" 
-              placeholder="사용자이름"
-              name="username_name"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">비밀번호</label>
-              <input 
-              type="password" 
-              class="form-control" 
-              id="password" 
-              placeholder="비밀번호"
-              name="password_pw"
-              />
-            </div>
-
-            <button type="submit" class="btn btn-primary">login</button>
-          </form>
+          {% for field in form %}
+          <div class="form-group">
+            <label for="{{field.id_for_label}}">{{ field.label }}</label>
+            <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{field.id_for_label}}" placeholder="{{ field.label }}" name="{{ field.name }}"/>
+          </div>
+          
+          {% endfor %}
+          <button type="submit" class="btn btn-primary">login</button>
+        </form>
     </div>
 </div>
 {% endblock %}

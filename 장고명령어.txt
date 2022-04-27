@@ -101,4 +101,6 @@ python manage.py migrate 할 때  table already exist 에러 - 블로그 확인,
 4-5 MTV의 T 확장 - 상속
 	중복되는 코드를 없애주고
 	예를 들어 meta 테그를 수정할려고 한다면 한번의 작업으로 모든 상속받은 html에 적용가능하도록 만들 수 있다.
-	
+
+4-6 Form 활용하기 - 1
+	django에서 제공하는 form활용하기.
