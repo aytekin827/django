@@ -8,12 +8,18 @@ from django.contrib.auth.hashers import make_password, check_password
 
 def home(request):
     user_id = request.session.get('user')
-    print(request.session)
+    # print(request.session)
     if user_id:
         fcuser = Fcuser.objects.get(pk=user_id)
         return HttpResponse(fcuser.username)
 
     return HttpResponse('Home!')
+
+def logout(request):
+    if request.session.get('user'):
+        del(request.session['user'])
+
+    return redirect('/')
 
 def login(request):
     if request.method == 'GET':
@@ -35,6 +41,7 @@ def login(request):
 
                 return redirect('/')
                 # 홈페이지 리다이렉션 처리!
+
             else:
                 # print('비밀번호 틀림')
                 res_data['error'] = '비밀번호가 틀렸습니다. 비밀번호를 확인하세요'
