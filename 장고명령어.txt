@@ -111,3 +111,7 @@ python manage.py migrate 할 때  table already exist 에러 - 블로그 확인,
 5-2 글쓰기, 글 상세보기
 	이 부분이 숙련해야할 부분이 많다.
 	html쓰는것과 db관련 이해, 변수들이 물고 물리는 것, 그리고 django의 프로세스 이해 여기 다시한번 숙련하는 부분으로 하자.
+
+5-3 예외처리
+	예외처리시 try, except구문 활용
+	

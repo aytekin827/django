@@ -25,7 +25,14 @@ class LoginForm(forms.Form):
         password = cleaned_data.get('password')
 
         if username and password:
-            fcuser = Fcuser.objects.get(username=username)
+            
+            # 예외처리 - 아이디가 없는 경우
+            try:
+                fcuser = Fcuser.objects.get(username=username)
+            except Fcuser.DoesNotExist:
+                self.add_error('username','아이디가 없습니다.')
+                return
+
             if not check_password(password,fcuser.password):
                 self.add_error('passowrd','비밀번호가 틀렸습니다.')
             else:
