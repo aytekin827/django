@@ -1,8 +1,10 @@
+from re import T
 from flask import redirect
 from fcuser.models import Fcuser
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from tag.models import Tag
 from .forms import BoardForm
 from .models import Board
 
@@ -33,6 +35,14 @@ def board_write(request):
             board.contents = form.cleaned_data['contents']
             board.writer = fcuser
             board.save()
+
+            tags = form.cleaned_data['tags'].split(',')
+            for tag in tags:
+                if not tag:
+                    continue
+                
+                _tag, _ = Tag.objects.get_or_create(name=tag)
+                board.tags.add(_tag)
 
             return redirect('/board/list')
 

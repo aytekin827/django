@@ -15,3 +15,7 @@ class BoardForm(forms.Form):
         label = "내용",
         widget=forms.Textarea
     )
+    tags = forms.CharField(
+        required=False,
+        label = "테그",
+    )

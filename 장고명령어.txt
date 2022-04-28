@@ -122,7 +122,9 @@ python manage.py migrate 할 때  table already exist 에러 - 블로그 확인,
 	btn-block depreciated in bootstrap. use w-100 instead.
 	사이트 만들때 필요한 이것저것들
 
-5-1 테그 만들기 M:N 관계
+6-1 테그 만들기 M:N 관계
 	queryset에서는 반복문을 돌면서 하나씩 테그를 꺼내써줄수 있다.
-	
-	
+
+6-2 테그 만들기 
+	get_or_create함수 사용해서 글쓸때 가져오가나 없으면 새로 만드는 로직 추가.
+
