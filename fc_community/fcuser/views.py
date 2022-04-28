@@ -1,8 +1,5 @@
-from math import hypot
-from winreg import HKEYType
 from django.shortcuts import render, redirect
 from .models import Fcuser
-from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password, check_password
 from .forms import LoginForm
 # Create your views here.

@@ -1,4 +1,3 @@
-from re import T
 from flask import redirect
 from fcuser.models import Fcuser
 from django.http import Http404
