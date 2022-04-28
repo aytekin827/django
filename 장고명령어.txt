@@ -128,3 +128,8 @@ python manage.py migrate 할 때  table already exist 에러 - 블로그 확인,
 6-2 테그 만들기 
 	get_or_create함수 사용해서 글쓸때 가져오가나 없으면 새로 만드는 로직 추가.
 
+7-1 배포 - django 설정
+	settings.py에서 설정
+	DEBUG = False
+	ALLOWED_HOSTS - pythonanywhere의 아이디 
+	pythonanywhere에서 프로젝트 파일들을 압축해서 업로드.
