@@ -121,3 +121,8 @@ python manage.py migrate 할 때  table already exist 에러 - 블로그 확인,
 5-5 리뷰 및 프로젝트 보완
 	btn-block depreciated in bootstrap. use w-100 instead.
 	사이트 만들때 필요한 이것저것들
+
+5-1 테그 만들기 M:N 관계
+	queryset에서는 반복문을 돌면서 하나씩 테그를 꺼내써줄수 있다.
+	
+	

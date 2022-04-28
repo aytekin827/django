@@ -8,6 +8,14 @@
             <input type="text" class="form-control" id="title" value="{{ board.title }}" readonly />
             <label for="contents">contents</label>
             <textarea class="form-control" readonly>{{ board.contents }}</textarea>
+            <label for="tag">테그</label>
+            <span id="tag" class="form-control">
+                <!-- 파이썬 join내장함수 사용해서 테그 사이마다 ,삽입 -->
+                {{ board.tags.all|join:"," }}
+                <!-- {% for tag in board.tags.all %}
+                {{ tag.name }},
+                {% endfor%} -->
+            </span>
         </div>
         <button type="button" class="btn btn-primary" onclick="location.href='/board/list/'">돌아가기</button>
     </div>
