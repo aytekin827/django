@@ -117,3 +117,7 @@ python manage.py migrate 할 때  table already exist 에러 - 블로그 확인,
 
 5-4 paginator
 	bootstrap에서 html코드 테그 코드 참고
+
+5-5 리뷰 및 프로젝트 보완
+	btn-block depreciated in bootstrap. use w-100 instead.
+	사이트 만들때 필요한 이것저것들
